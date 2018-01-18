@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>實作：身份證驗證(Q2:男女)</title>
+    <style>
+      .container{
+        margin-top: 200px;
+        text-align: center;
+      }
+    </style>
+    <script>
+    "use strict";
+      function validate() {
+        var code = document.getElementById("nric").value;
+        if (code =="") {
+          alert("請輸入！");
+          return;
+        }else if (!isNaN(code)) {
+          alert("資料不符，請重新輸入！");
+          return;
+        }else if (code.length != 10) {
+          alert("資料長度不符，請重新輸入！");
+          return;
+        }else {
+          if(code[1] == 1){
+            document.getElementById("result").innerHTML = "先生您好！驗證成功！";
+          }else if(code[1] == 2){
+            document.getElementById("result").innerHTML = "小姐您好！驗證成功！";
+          }else{
+            alert("資料不符，請重新輸入！");
+            return;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>請輸入身份證字號</h1>
+      <form>
+        <input type="text" id="nric">
+        <input type="button" value="驗證" onclick="validate()">
+        <p id="result"></p>
+      </form>
+    </div>
+
+
+  </body>
+</html>
